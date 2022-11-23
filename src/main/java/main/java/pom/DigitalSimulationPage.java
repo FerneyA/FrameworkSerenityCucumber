@@ -1,14 +1,14 @@
-package com.project.pom;
+package main.java.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DigitalSimulationPage extends Base {
+public class DigitalSimulationPage extends BasePage {
 
-    By txtRequestedAmount = By.xpath("//div[@class='ant-spin-container']//input[@class='ant-input sml-input']");
+    By txtRequestedAmount = By.cssSelector("input[class='ant-input sml-input']");
     By txtDues = By.cssSelector("input[class='ant-input-number-input']");
-    By selExpandedMonthOfGrace = By.xpath("//div[@class='ant-row sml-credit']//div[@class='sml-select ant-select ant-select-open ant-select-focused ant-select-enabled']");
-    By selMonthOfGrace = By.xpath("//div[@class='ant-row sml-credit']//div[@class='sml-select ant-select ant-select-enabled']");
+    By selExpandedMonthOfGrace = By.xpath("//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical']");
+    By selMonthOfGrace = By.xpath("//div[@class='sml-select ant-select ant-select-enabled']/div/span");
     By btnSimulate = By.xpath("//div[@class='ant-spin-container']//button[@type='button']");
     By lblSimulationResults = By.xpath("//div[@class='ant-row sml-credit-result']/h3");
     By btnRequestCredit = By.xpath("//main[@class='ant-layout-content']//button[@class='ant-btn next-btn buttonSimulation2']");
@@ -17,14 +17,15 @@ public class DigitalSimulationPage extends Base {
         super(driver);
     }
 
-    public void simulateCredit() throws InterruptedException {
-        Thread.sleep(20000);
+    public void simulateCredit(String requestAmount, String dues) throws InterruptedException {
+        //Thread.sleep(20000);
         explicitWaitElementToBeClickable(txtRequestedAmount);
         clearTextField(txtRequestedAmount);
-        typeWithEnter("2.000.000", txtRequestedAmount);
-        type("50", txtDues);
-        selectDropDown(selMonthOfGrace);
-        selectDropDown(selExpandedMonthOfGrace);
+        typeWithTab(requestAmount, txtRequestedAmount);
+        type(dues, txtDues);
+        //selectDropDown(selMonthOfGrace);
+        //selectDropDown(selExpandedMonthOfGrace);
+        selectOptionDown(selMonthOfGrace, "1");
         performScrollDown();
         explicitWaitElementToBeClickable(btnSimulate).click();
     }

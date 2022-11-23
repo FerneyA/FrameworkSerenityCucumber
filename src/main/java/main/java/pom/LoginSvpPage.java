@@ -1,9 +1,9 @@
-package com.project.pom;
+package main.java.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginSvpPage extends Base {
+public class LoginSvpPage extends BasePage {
 
     By txtRutUser = By.name("username");
     By txtPassword = By.name("password");
@@ -14,6 +14,8 @@ public class LoginSvpPage extends Base {
     }
 
     public void loginUser(String user, String password) throws InterruptedException {
+        fluentWait(txtRutUser);
+        performScrollDown();
         type(user, txtRutUser);
         type(password, txtPassword);
         click(btnEnter);

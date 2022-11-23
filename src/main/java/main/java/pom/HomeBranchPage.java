@@ -1,9 +1,9 @@
-package com.project.pom;
+package main.java.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomeBranchPage extends Base {
+public class HomeBranchPage extends BasePage {
 
     By lnkSimulateYourCredit = By.cssSelector("a[href='cotiza-tu-credito']");
     By imgSimulateCredit = By.xpath("//a[@href='cotiza-tu-credito']/img");

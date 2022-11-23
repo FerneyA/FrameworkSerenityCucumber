@@ -1,50 +1,17 @@
-package com.project.pom;
+package main.java.pom;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
 import java.util.List;
-import java.util.function.Function;
 
-import static org.testng.AssertJUnit.fail;
-
-public class Base {
+public class BasePage {
 
     private WebDriver driver;
 
-    Base(WebDriver driver) {
+    BasePage(WebDriver driver) {
         this.driver = driver;
-    }
-
-    public WebDriver chromeDriverConection() {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/USUARIO/drivers/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        return driver;
-    }
-
-    public WebDriver remoteHubTest() {
-        try {
-            DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-            desiredCapabilities.setBrowserName("chrome");
-            desiredCapabilities.setPlatform(Platform.WINDOWS);
-            URL hubURL = new URL("http://localhost:4444/");
-            driver = new RemoteWebDriver(hubURL, desiredCapabilities);
-            driver.manage().window().maximize();
-            return driver;
-        } catch (MalformedURLException e) {
-            fail(e.getMessage());
-            return driver;
-        }
     }
 
     public void visit(String url) {
@@ -71,9 +38,9 @@ public class Base {
         driver.findElement(locator).sendKeys(inputText);
     }
 
-    public void typeWithEnter(String inputText, By locator) {
+    public void typeWithTab(String inputText, By locator) {
         driver.findElement(locator).sendKeys(inputText);
-        driver.findElement(locator).sendKeys(Keys.ENTER);
+        driver.findElement(locator).sendKeys(Keys.TAB);
     }
 
     public void click(By locator) {
@@ -95,15 +62,11 @@ public class Base {
     public WebElement fluentWait(final By locator) {
         // Waiting 30 seconds for an element to be present on the page, checking
         // for its presence once every 5 seconds.
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+        Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(NoSuchElementException.class);
-        WebElement webElement = wait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(locator);
-            }
-        });
+        WebElement webElement = wait.until(driver -> driver.findElement(locator));
         return webElement;
     }
 
@@ -124,12 +87,32 @@ public class Base {
 
     public void performScrollDown() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,1000)");
+        js.executeScript("window.scrollBy(0,500)");
     }
 
     public void selectDropDown(By locator) {
         WebElement webElement = driver.findElement(locator);
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
         javascriptExecutor.executeScript("arguments[0].click();", webElement);
+    }
+
+    public void selectOptionDown(By locator, String searchText) {
+        WebElement webElement = driver.findElement(locator);
+        webElement.click();
+        List<WebElement> options = webElement.findElements(By.tagName("li"));
+        for (WebElement option : options)
+        {
+            if (option.getText().equals(searchText))
+            {
+                option.click();
+                break;
+            }
+        }
+    }
+
+    public void selectDropDown3(By locator, String value) throws InterruptedException {
+        WebElement dropDown = driver.findElement(locator);
+        dropDown.click();
+        dropDown.findElement(By.xpath("//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical']/li[text()='" + value + "']")).click();
     }
 }
