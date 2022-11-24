@@ -39,7 +39,6 @@ public class BaseTests {
         String path = System.getProperty("user.dir") +
                 File.separator + "reports" + File.separator + "index.html";
         htmlReporter = new ExtentSparkReporter(path);
-        //htmlReporter.config().setEncoding("utf-8");
         htmlReporter.config().setDocumentTitle("Test Results");
         htmlReporter.config().setReportName("Web Automation Results");
         extent = new ExtentReports();
@@ -80,7 +79,7 @@ public class BaseTests {
             Markup m = MarkupHelper.createLabel(logText, ExtentColor.AMBER);
             logger.log(Status.SKIP, m);
         }
-        driver.quit();
+        //driver.quit();
     }
 
     @AfterTest

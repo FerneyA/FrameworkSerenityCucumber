@@ -15,7 +15,7 @@ public class HomeBranchPage extends BasePage {
     public Boolean selectDirectAccess(String nameDirectAccess) throws InterruptedException {
         if (nameDirectAccess.equalsIgnoreCase("SIMULA TU CRÉDITO")) {
             Thread.sleep(3000);
-            performScrollDown();
+            performScrollDown(imgSimulateCredit);
             if(fluentWait(imgSimulateCredit).isDisplayed()) {
                 explicitWaitVisibilityOfElement(lnkSimulateYourCredit).click();
                 return true;
