@@ -25,6 +25,7 @@ public class PersonalInformationPage extends BasePage {
         typeWithTab(ciDocument, inputCIDocument);
         typeWithTab(address, inputAddress);
         selectOptionDropDown(downRegion, region);
+        Thread.sleep(4000);
         selectOptionDropDown(downCommune, commune);
     }
 

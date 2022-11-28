@@ -63,8 +63,7 @@ public class BasePage {
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(NoSuchElementException.class);
-        WebElement webElement = wait.until(driver -> driver.findElement(locator));
-        return webElement;
+        return wait.until(driver -> driver.findElement(locator));
     }
 
     public WebElement explicitWaitVisibilityOfElement(By locator) {
@@ -120,8 +119,9 @@ public class BasePage {
 
     public void selectOptionDropDown(By locator, String value) throws InterruptedException {
         WebElement dropDown = driver.findElement(locator);
+        explicitWaitElementToBeClickable(locator);
         dropDown.click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         dropDown.findElement(By.xpath("//ul[contains(@class, 'ant-select-dropdown-menu')]/li[text()='" + value + "']")).click();
     }
 
