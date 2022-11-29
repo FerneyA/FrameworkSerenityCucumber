@@ -19,7 +19,7 @@ public class DigitalSimulationPage extends BasePage {
     }
 
     public void simulateCredit(String requestAmount, String dues, String monthOfGrace, String insurance) throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         waitInvisibilityOfSpin();
         explicitWaitVisibilityOfElement(txtRequestedAmount);
         typeWithTab(requestAmount, txtRequestedAmount);

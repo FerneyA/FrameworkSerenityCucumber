@@ -37,6 +37,5 @@ public class PersonalInformationPage extends BasePage {
         type(accountNumber, inputAccountNumber);
         Thread.sleep(2000);
         click(btnContinue);
-        waitInvisibilityOfSpin();
     }
 }

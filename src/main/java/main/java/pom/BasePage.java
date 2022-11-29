@@ -4,6 +4,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.List;
 
@@ -129,5 +132,21 @@ public class BasePage {
         WebElement webElement = findElement(locator);
         Actions actions = new Actions(driver);
         actions.moveToElement(webElement).click().build().perform();
+    }
+
+    public void uploadFile(By locator, String path) throws AWTException {
+        driver.findElement(locator).sendKeys(path);
+        Robot rb = new Robot();
+        StringSelection str = new StringSelection(System.getProperty("user.dir") + "\\test-data\\document_id\\" + path);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+        // press Contol+V for pasting
+        rb.keyPress(KeyEvent.VK_CONTROL);
+        rb.keyPress(KeyEvent.VK_V);
+        // release Contol+V for pasting
+        rb.keyRelease(KeyEvent.VK_CONTROL);
+        rb.keyRelease(KeyEvent.VK_V);
+        // for pressing and releasing Enter
+        rb.keyPress(KeyEvent.VK_ENTER);
+        rb.keyRelease(KeyEvent.VK_ENTER);
     }
 }
