@@ -11,7 +11,6 @@ import java.awt.*;
 import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class SimulateCreditTest  extends BaseTests {
 

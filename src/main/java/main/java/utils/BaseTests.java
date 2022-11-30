@@ -50,8 +50,8 @@ public class BaseTests {
     @Parameters(value = {"browserName"})
     public void beforeMethodMethod(String browserName, Method method) {
         logger = extent.createTest(method.getAnnotation(Test.class).testName());
-        setUpDriver(browserName);
-        //remoteHubTest();
+        //setUpDriver(browserName);
+        remoteHubTest();
         driver.manage().window().maximize();
         driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
     }
@@ -79,7 +79,7 @@ public class BaseTests {
             Markup m = MarkupHelper.createLabel(logText, ExtentColor.AMBER);
             logger.log(Status.SKIP, m);
         }
-        //driver.quit();
+        driver.quit();
     }
 
     @AfterTest
