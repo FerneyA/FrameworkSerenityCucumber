@@ -12,6 +12,7 @@ public class SummaryPage extends BasePage {
     By lblBank = By.xpath("//span[text()='Banco']/parent::div/following-sibling::div/span");
     By btnReviewDocuments= By.xpath("//*[@id='root']/section/main/div[4]/button[@class='ant-btn next-btn buttonSimulation2']");
     By btnConfirm = By.xpath("//span[text()='Confirmar']/parent::button");
+    By btnSendRequestPf1 = By.xpath("//span[text()='Enviar Solicitud De Crédito']/parent::button");
 
     public SummaryPage(WebDriver driver) {
         super(driver);
@@ -44,5 +45,9 @@ public class SummaryPage extends BasePage {
         click(btnReviewDocuments);
         explicitWaitVisibilityOfElement(btnConfirm);
         click(btnConfirm);
+    }
+
+    public void sendRequestPf1() {
+        click(btnSendRequestPf1);
     }
 }

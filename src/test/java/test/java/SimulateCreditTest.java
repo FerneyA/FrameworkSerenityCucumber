@@ -22,7 +22,7 @@ public class SimulateCreditTest  extends BaseTests {
     SummaryPage summaryPage;
     ExcelDataProvider excelDataProvider;
 
-    @Test(dataProvider = "credit_simulation_data", testName = "Simular crédito usuario")
+    @Test(dataProvider = "credit_simulation_data", testName = "Simular crédito usuario PF2.0")
     public void test(String args[]) throws InterruptedException, AWTException {
         this.driver = BaseTests.driver;
         loginSvpPage = new LoginSvpPage(driver);
@@ -48,6 +48,6 @@ public class SimulateCreditTest  extends BaseTests {
     @DataProvider(name = "credit_simulation_data")
     public Object[][] getDataCreditSimulation() throws IOException {
         excelDataProvider = new ExcelDataProvider();
-        return excelDataProvider.getTestData("credit_simulation_data.xlsx", "Sheet1");
+        return excelDataProvider.getTestData("credit_simulation_data.xlsx", "PF2.0");
     }
 }

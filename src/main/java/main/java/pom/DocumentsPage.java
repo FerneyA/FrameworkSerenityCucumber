@@ -7,9 +7,10 @@ import java.awt.*;
 
 public class DocumentsPage extends BasePage {
 
-    By btnFrontDocumentID = By.xpath("//span[text()='Anverso o Frontal']/following-sibling::div//button");
-    By btnReverse = By.xpath("//span[text()='Reverso']/following-sibling::div//button");
+    By btnFrontDocumentID = By.xpath("//span[contains(text(),'Anverso o Frontal')]/following-sibling::div//button");
+    By btnReverse = By.xpath("//span[contains(text(),'Reverso')]/following-sibling::div//button");
     By btnNext = By.xpath("//*[@id='root']/section/main/div[4]/button[@class='ant-btn next-btn buttonSimulation2']");
+    By btnNextPf1 = By.xpath("//span[text()='Siguiente']/parent::button");
 
     public DocumentsPage(WebDriver driver) {
         super(driver);
@@ -27,5 +28,18 @@ public class DocumentsPage extends BasePage {
         uploadFile(btnFrontDocumentID, "reverse_document_id.png");
         Thread.sleep(2000);
         click(btnNext);
+    }
+
+    public void uploadDocumentIdPf1() throws InterruptedException, AWTException {
+        waitInvisibilityOfSpin();
+        explicitWaitVisibilityOfElement(btnFrontDocumentID);
+        click(btnFrontDocumentID);
+        Thread.sleep(2000);
+        uploadFile(btnFrontDocumentID, "front_document_id.png");
+        click(btnReverse);
+        Thread.sleep(2000);
+        uploadFile(btnFrontDocumentID, "reverse_document_id.png");
+        Thread.sleep(2000);
+        click(btnNextPf1);
     }
 }

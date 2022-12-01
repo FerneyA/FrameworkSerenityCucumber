@@ -124,7 +124,7 @@ public class BasePage {
         WebElement dropDown = driver.findElement(locator);
         explicitWaitElementToBeClickable(locator);
         dropDown.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         dropDown.findElement(By.xpath("//ul[contains(@class, 'ant-select-dropdown-menu')]/li[text()='" + value + "']")).click();
     }
 

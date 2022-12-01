@@ -4,10 +4,10 @@
     <listeners>
         <listener class-name="main.java.utils.Listeners"/>
     </listeners>
-    <test name="Simulate Credit Test">
+    <test name="Simulate Credit PF1 Test">
         <parameter name="browserName" value="chrome"/>
         <classes>
-            <class name="test.java.SimulateCreditTest"/>
+            <class name="test.java.SimulateCreditPF1Test"/>
         </classes>
     </test>
 </suite>

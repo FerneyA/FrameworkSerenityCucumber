@@ -12,6 +12,7 @@ public class DigitalSimulationPage extends BasePage {
     By downMonthOfGrace = By.xpath("//div[@class='sml-select ant-select ant-select-enabled']/div/span");
     By btnSimulate = By.xpath("//div[@class='ant-spin-container']//button[@type='button']");
     By lblSimulationResults = By.cssSelector("span[class='sml-subtitle-amount']");
+    By lblSimulationResultsPf1 = By.xpath(".//h4[@class='sml-subtitle']");
     By btnRequestCredit = By.xpath("//*[@id='root']/section/main/div[4]/button");
 
     public DigitalSimulationPage(WebDriver driver) {
@@ -35,9 +36,24 @@ public class DigitalSimulationPage extends BasePage {
         explicitWaitElementToBeClickable(btnSimulate).click();
     }
 
+    public void simulateCreditPF1(String requestAmount, String dues) throws InterruptedException {
+        //Thread.sleep(5000);
+        waitInvisibilityOfSpin();
+        explicitWaitVisibilityOfElement(txtRequestedAmount);
+        typeWithTab(requestAmount, txtRequestedAmount);
+        typeWithTab(dues, txtDues);
+        explicitWaitElementToBeClickable(btnSimulate).click();
+    }
+
     public Boolean validateTextInLabel(String text) {
         waitInvisibilityOfSpin();
         return explicitWaitTextToBePresentInElement(lblSimulationResults, text);
+    }
+
+    public Boolean validateTextInLabelPf1(String text) {
+        waitInvisibilityOfSpin();
+        System.out.println(getText(lblSimulationResultsPf1));
+        return explicitWaitTextToBePresentInElement(lblSimulationResultsPf1, text);
     }
 
     public void requestCredit() throws InterruptedException {
