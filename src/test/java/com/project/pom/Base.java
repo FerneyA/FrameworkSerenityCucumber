@@ -37,7 +37,7 @@ public class Base {
             DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
             desiredCapabilities.setBrowserName("chrome");
             desiredCapabilities.setPlatform(Platform.WINDOWS);
-            URL hubURL = new URL("http://localhost:4444/");
+            URL hubURL = new URL("http://standalone-chrome:4444/");
             driver = new RemoteWebDriver(hubURL, desiredCapabilities);
             driver.manage().window().maximize();
             return driver;
