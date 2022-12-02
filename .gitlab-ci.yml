@@ -1,10 +1,10 @@
 stages:
 - test
 
-#ariables:
-#    URL_SITE:
-#        value: ""
-#        description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico)"
+variables:
+    URL_SITE:
+        value: ""
+        description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico)"
 
 testAuto:
     stage: test
@@ -22,7 +22,7 @@ testAuto:
         paths:
         - .m2/repository
     before_script:
-    #- openvpn --dev tun10 --config /openvpn/pfSense-1-TCP4-1194.ovpn --auth-user-pass $AUTH_USER_VPN --tls-auth /openvpn/pfSense-1-TCP4-1194-tls.key --ca /openvpn/pfSense-1-TCP4-1194-ca.crt --tmp-dir /opt --daemon
+    - openvpn --dev tun10 --config /openvpn/pfSense-1-TCP4-1194.ovpn --auth-user-pass $AUTH_USER_VPN --tls-auth /openvpn/pfSense-1-TCP4-1194-tls.key --ca /openvpn/pfSense-1-TCP4-1194-ca.crt --tmp-dir /opt --daemon
     #- sleep 10
     #- echo "nameserver 10.23.3.9" > /etc/resolv.conf
     #- echo "nameserver 10.23.3.10" >> /etc/resolv.conf
