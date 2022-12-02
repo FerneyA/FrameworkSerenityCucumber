@@ -50,14 +50,14 @@ public class BaseTests {
     @Parameters(value = {"browserName"})
     public void beforeMethodMethod(String browserName, Method method) {
         logger = extent.createTest(method.getAnnotation(Test.class).testName());
-        setUpDriver(browserName);
-        //remoteHubTest();
+        //setUpDriver(browserName);
+        remoteHubTest();
         driver.manage().window().maximize();
         driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
     }
 
     @AfterMethod
-    public void afterMethodMethod(ITestResult result) throws IOException {
+    public void afterMethodMethod(ITestResult result) {
         if (result.getStatus() == ITestResult.SUCCESS) {
             String methodName = result.getMethod().getMethodName();
             String logText = "Test Case: " + methodName + " Passed";
