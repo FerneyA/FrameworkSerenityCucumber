@@ -1,10 +1,10 @@
 stages:
 - test
 
-#variables:
-#    URL_SITE:
-#        value: ""
-#        description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/inicio)"
+variables:
+    URL_SITE:
+        value: ""
+        description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico)"
 
 testAuto:
     stage: test
@@ -13,7 +13,8 @@ testAuto:
     services:
     - name: selenium/standalone-chrome:latest
       alias: standalone-chrome
-    
+    tags:
+    - ccla-private-runners
     variables: 
         MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
     cache:
@@ -34,5 +35,4 @@ testAuto:
         expire_in: 1 hour
     rules:
     - if: '$CI_COMMIT_BRANCH'
-    tags:
-    - ccla-private-runners
+    
