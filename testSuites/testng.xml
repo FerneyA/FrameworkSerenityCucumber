@@ -10,4 +10,10 @@
             <class name="test.java.SimulateCreditPF1Test"/>
         </classes>
     </test>
+    <test name="Simulate Credit PF2 Test">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="test.java.SimulateCreditTest"/>
+        </classes>
+    </test>
 </suite>
