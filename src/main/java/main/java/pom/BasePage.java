@@ -63,10 +63,15 @@ public class BasePage {
         // Waiting 30 seconds for an element to be present on the page, checking
         // for its presence once every 5 seconds.
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(30))
+                .withTimeout(Duration.ofSeconds(50))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(NoSuchElementException.class);
         return wait.until(driver -> driver.findElement(locator));
+    }
+
+    public void webDriverWait(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     public WebElement explicitWaitVisibilityOfElement(By locator) {

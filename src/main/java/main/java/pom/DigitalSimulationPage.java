@@ -20,9 +20,8 @@ public class DigitalSimulationPage extends BasePage {
     }
 
     public void simulateCredit(String requestAmount, String dues, String monthOfGrace, String insurance) throws InterruptedException {
-        Thread.sleep(15000);
         waitInvisibilityOfSpin();
-        explicitWaitVisibilityOfElement(txtRequestedAmount);
+        fluentWait(txtRequestedAmount);
         typeWithTab(requestAmount, txtRequestedAmount);
         typeWithTab(dues, txtDues);
         explicitWaitElementToBeClickable(downMonthOfGrace) ;
@@ -37,9 +36,8 @@ public class DigitalSimulationPage extends BasePage {
     }
 
     public void simulateCreditPF1(String requestAmount, String dues) throws InterruptedException {
-        //Thread.sleep(5000);
         waitInvisibilityOfSpin();
-        explicitWaitVisibilityOfElement(txtRequestedAmount);
+        fluentWait(txtRequestedAmount);
         typeWithTab(requestAmount, txtRequestedAmount);
         typeWithTab(dues, txtDues);
         explicitWaitElementToBeClickable(btnSimulate).click();
@@ -52,14 +50,13 @@ public class DigitalSimulationPage extends BasePage {
 
     public Boolean validateTextInLabelPf1(String text) {
         waitInvisibilityOfSpin();
-        System.out.println(getText(lblSimulationResultsPf1));
         return explicitWaitTextToBePresentInElement(lblSimulationResultsPf1, text);
     }
 
     public void requestCredit() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         performScrollDownBottomPage();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         click(btnRequestCredit);
     }
 }

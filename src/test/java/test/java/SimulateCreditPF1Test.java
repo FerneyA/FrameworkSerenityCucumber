@@ -37,9 +37,10 @@ public class SimulateCreditPF1Test extends BaseTests {
         personalInformationPage.updatePersonalInformationPf1(args[7], args[8], args[9], args[10], args[4], args[16], args[17]);
         personalInformationPage.updateBankDataPf1(args[11], args[12], args[13]);
         documentsPage.uploadDocumentIdPf1();
-        assertEquals(summaryPage.getRequestAmount(), args[14]);
+        assertEquals(summaryPage.getRequestAmountPf1(), args[14]);
         assertEquals(summaryPage.getDues(), args[3]);
         summaryPage.sendRequestPf1();
+        assertEquals(summaryPage.getMessageRequestSent(), "TU SOLICITUD FUE ENVIADA EXITOSAMENTE");
     }
 
     @DataProvider(name = "credit_simulation_data")

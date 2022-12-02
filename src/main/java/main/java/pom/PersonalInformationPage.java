@@ -44,26 +44,25 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void updatePersonalInformationPf1(String ciDocument, String address, String region, String commune, String streetNumber, String email, String phone) throws InterruptedException {
-        //Thread.sleep(20000);
         waitInvisibilityOfSpin();
-        explicitWaitElementToBeClickable(inputEmailPf1);
+        fluentWait(inputEmailPf1);
         typeWithTab(ciDocument, inputCIDocument);
         typeWithTab(email, inputEmailPf1);
         typeWithTab(phone, inputPhonePf1);
         typeWithTab(address, inputAddress);
         typeWithTab(streetNumber, inputStreetNumberPf1);
         selectOptionDropDown(downRegion, region);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         selectOptionDropDown(downCommune, commune);
     }
 
     public void updateBankDataPf1(String bank, String accountType, String accountNumber) throws InterruptedException {
         performScrollDownBottomPage();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         selectOptionDropDown(downBank, bank);
         selectOptionDropDown(downAccountType, accountType);
         typeWithTab(accountNumber, inputAccountNumber);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         click(btnSaveDataAndContinuePf1);
     }
 }
