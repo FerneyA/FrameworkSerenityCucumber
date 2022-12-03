@@ -18,7 +18,7 @@
                             <artifactId>maven-surefire-plugin</artifactId>
                             <version>3.0.0-M7</version>
                             <configuration>
-                                <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                                <testFailureIgnore>true</testFailureIgnore>
                                 <suiteXmlFiles>
                                     <suiteXmlFile>testSuites/testng.xml</suiteXmlFile>
                                 </suiteXmlFiles>
