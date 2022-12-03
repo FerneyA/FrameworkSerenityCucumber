@@ -9,7 +9,7 @@ stages:
 testAuto:
     stage: test
     #image: registry.gitlab.com/ccla/devsecops/templates-ci-cd/golden-image/vpn-ccla:stable-maven-3.8.5-openjdk-11-alpine-3.16
-    image: maven:3.8.5-jdk-11
+    image: maven:3.8.5-jdk-8-slim
     services:
     - name: selenium/standalone-chrome:latest
       alias: standalone-chrome
