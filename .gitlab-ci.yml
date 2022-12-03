@@ -1,9 +1,15 @@
 stages:
 - test
 
+#variables:
+#    URL_SITE:
+#        value: ""
+#       description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico)"
+
 testAuto:
     stage: test
-    image: registry.gitlab.com/ccla/devsecops/templates-ci-cd/golden-image/special-image:stable-openjdk-11-maven-3.8.5-alpine-3.16
+    #image: registry.gitlab.com/ccla/devsecops/templates-ci-cd/golden-image/vpn-ccla:stable-maven-3.8.5-openjdk-11-alpine-3.16
+    image: maven:3.8.5-jdk-8-slim
     services:
     - name: selenium/standalone-chrome:latest
       alias: standalone-chrome
@@ -16,6 +22,10 @@ testAuto:
         paths:
         - .m2/repository
     before_script:
+    #- openvpn --dev tun10 --config /openvpn/pfSense-1-TCP4-1194.ovpn --auth-user-pass $AUTH_USER_VPN --tls-auth /openvpn/pfSense-1-TCP4-1194-tls.key --ca /openvpn/pfSense-1-TCP4-1194-ca.crt --tmp-dir /opt --daemon
+    #- sleep 10
+    #- echo "nameserver 10.23.3.9" > /etc/resolv.conf
+    #- echo "nameserver 10.23.3.10" >> /etc/resolv.conf
     - ping -c 5 pwpwebqaohs.cajalosandes.cl
     script:
     - mvn clean test -PRegression
