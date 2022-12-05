@@ -9,18 +9,17 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.Browser;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -47,11 +46,11 @@ public class BaseTests {
     }
 
     @BeforeMethod
-    @Parameters(value = {"browserName"})
-    public void beforeMethodMethod(String browserName, Method method) {
+    @Parameters(value = {"browser"})
+    public void beforeMethodMethod(String browser, Method method) {
         logger = extent.createTest(method.getAnnotation(Test.class).testName());
         //setUpDriver(browserName);
-        remoteHubTest();
+        remoteHubTest(browser);
         driver.manage().window().maximize();
         driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
     }
@@ -87,35 +86,50 @@ public class BaseTests {
         extent.flush();
     }
 
-    public void setUpDriver(String browserName){
-        if (browserName.equalsIgnoreCase("chrome")) {
+    public void setUpDriver(String browser){
+        if (browser.equalsIgnoreCase("remote-chrome")) {
             System.setProperty("webdriver.chrome.driver", "C:/Users/USUARIO/drivers/chromedriver.exe");
             driver = new ChromeDriver();
-        } else if (browserName.equalsIgnoreCase("firefox")) {
+        } else if (browser.equalsIgnoreCase("remote-firefox")) {
             System.setProperty("webdriver.gecko.driver", "C:/Users/USUARIO/drivers/geckodriver.exe");
             driver = new FirefoxDriver();
-        } else if (browserName.equalsIgnoreCase("edge")) {
+        } else if (browser.equalsIgnoreCase("remote-edge")) {
             System.setProperty("webdriver.edge.driver", "C:/Users/USUARIO/drivers/msedgedriver.exe");
             driver = new EdgeDriver();
         } else {
             System.setProperty("webdriver.chrome.driver", "C:/Users/USUARIO/drivers/chromedriver.exe");
             driver = new ChromeDriver();
-            System.out.println("Ingresé por el else");
         }
     }
 
-    public WebDriver remoteHubTest() {
-        try {
-            DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-            desiredCapabilities.setBrowserName("chrome");
-            desiredCapabilities.setPlatform(Platform.LINUX);
-            URL hubURL = new URL("http://standalone-chrome:4444/");
-            driver = new RemoteWebDriver(hubURL, desiredCapabilities);
-            driver.manage().window().maximize();
-            return driver;
-        } catch (MalformedURLException e) {
-            fail(e.getMessage());
-            return driver;
+    public WebDriver remoteHubTest(String browserName) {
+        if (browserName.equalsIgnoreCase("remote-chrome")) {
+            try {
+                DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                desiredCapabilities.setBrowserName(Browser.CHROME.browserName());
+                //desiredCapabilities.setPlatform(Platform.LINUX);
+                URL hubURL = new URL("http://standalone-chrome:4444/");
+                driver = new RemoteWebDriver(hubURL, desiredCapabilities);
+                driver.manage().window().maximize();
+                return driver;
+            } catch (MalformedURLException e) {
+                fail(e.getMessage());
+                return driver;
+            }
+        } else if (browserName.equalsIgnoreCase("remote-firefox")) {
+            try {
+                DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                desiredCapabilities.setBrowserName(Browser.FIREFOX.browserName());
+                //desiredCapabilities.setPlatform(Platform.LINUX);
+                URL hubURL = new URL("http://standalone-chrome:4444/");
+                driver = new RemoteWebDriver(hubURL, desiredCapabilities);
+                driver.manage().window().maximize();
+                return driver;
+            } catch (MalformedURLException e) {
+                fail(e.getMessage());
+                return driver;
+            }
         }
+        return driver;
     }
 }
