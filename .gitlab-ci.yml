@@ -28,7 +28,7 @@ testAuto:
     #- echo "nameserver 10.23.3.10" >> /etc/resolv.conf
     - ping -c 5 pwpwebqaohs.cajalosandes.cl || true
     script:
-    - mvn clean test -PRegression
+    - mvn clean test
     artifacts:
         paths:
         - reports/
