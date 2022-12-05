@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>cajalosandespilarfinanciero</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <profiles>
         <profile>
             <id>Regression</id>
@@ -18,7 +18,6 @@
                             <artifactId>maven-surefire-plugin</artifactId>
                             <version>3.0.0-M7</version>
                             <configuration>
-                                <testFailureIgnore>true</testFailureIgnore>
                                 <suiteXmlFiles>
                                     <suiteXmlFile>testSuites/testng.xml</suiteXmlFile>
                                 </suiteXmlFiles>
@@ -30,8 +29,8 @@
         </profile>
     </profiles>
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -92,11 +91,6 @@
             <artifactId>selenium-edge-driver</artifactId>
             <version>4.6.0</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-to-slf4j</artifactId>
-            <version>2.8.2</version>
         </dependency>
     </dependencies>
 </project>
