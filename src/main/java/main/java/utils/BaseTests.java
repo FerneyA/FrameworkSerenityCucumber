@@ -16,6 +16,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.Browser;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -32,6 +34,7 @@ public class BaseTests {
     public ExtentSparkReporter htmlReporter;
     public static ExtentReports extent;
     public static ExtentTest logger;
+    Logger log = LoggerFactory.getLogger(BaseTests.class);
 
     @BeforeTest
     public void beforeTestMethod() {
@@ -53,6 +56,7 @@ public class BaseTests {
         remoteHubTest(browser);
         driver.manage().window().maximize();
         driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
+        log.info("Method Before!!");
     }
 
     @AfterMethod
