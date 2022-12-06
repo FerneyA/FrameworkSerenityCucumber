@@ -2,9 +2,9 @@ stages:
 - test
 
 variables:
-    # URL_SITE:
-       # value: ""
-       # description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico)"
+    URL_SITE:
+       value: "https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico"
+       description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico)"
 
 testAuto:
     stage: test
