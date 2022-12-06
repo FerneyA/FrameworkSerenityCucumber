@@ -3,7 +3,7 @@ stages:
 
 variables:
     URL_SITE:
-       value: "https://google.com"
+       value: ""
        description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico)"
 
 testAuto:
