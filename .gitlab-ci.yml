@@ -5,7 +5,6 @@ variables:
     # URL_SITE:
        # value: ""
        # description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico)"
-    MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 testAuto:
     stage: test

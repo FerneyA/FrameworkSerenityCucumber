@@ -9,10 +9,9 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.Browser;
@@ -107,21 +106,14 @@ public class BaseTests {
     public WebDriver remoteHubTest(String browserName) {
         if (browserName.equalsIgnoreCase("remote-chrome")) {
             try {
-                /*DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(Browser.CHROME.browserName());
-                //desiredCapabilities.setPlatform(Platform.LINUX);
+                desiredCapabilities.setPlatform(Platform.LINUX);
                 URL hubURL = new URL("http://standalone-chrome:4444/");
                 driver = new RemoteWebDriver(hubURL, desiredCapabilities);
                 driver.manage().window().maximize();
-                return driver;*/
-
-                WebDriverManager.chromedriver().setup();
-                ChromeOptions options=new ChromeOptions();
-                options.setHeadless(true);
-                options.addArguments("window-size=1920,1200");
-                driver=new ChromeDriver(options);
-                driver.get("http://standalone-chrome:4444/");
-            } catch (Exception e) {
+                return driver;
+            } catch (MalformedURLException e) {
                 fail(e.getMessage());
                 return driver;
             }
