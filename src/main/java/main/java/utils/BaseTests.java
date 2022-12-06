@@ -12,6 +12,8 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.Browser;
@@ -106,12 +108,16 @@ public class BaseTests {
     public WebDriver remoteHubTest(String browserName) {
         if (browserName.equalsIgnoreCase("remote-chrome")) {
             try {
-                DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-                desiredCapabilities.setBrowserName(Browser.CHROME.browserName());
+                System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+                System.setProperty("webdriver.chrome.driver", "C:/Users/USUARIO/drivers/chromedriver.exe");
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                //DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                //desiredCapabilities.setBrowserName(Browser.CHROME.browserName());
                 //desiredCapabilities.setPlatform(Platform.LINUX);
                 URL hubURL = new URL("http://standalone-chrome:4444/");
-                driver = new RemoteWebDriver(hubURL, desiredCapabilities);
-                driver.manage().window().maximize();
+                driver = new RemoteWebDriver(hubURL, options);
+                //driver.manage().window().maximize();
                 return driver;
             } catch (MalformedURLException e) {
                 fail(e.getMessage());
