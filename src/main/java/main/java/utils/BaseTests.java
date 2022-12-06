@@ -53,7 +53,8 @@ public class BaseTests {
         //setUpDriver(browserName);
         remoteHubTest(browser);
         driver.manage().window().maximize();
-        driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
+        driver.get("https://google.com");
+        //driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
     }
 
     @AfterMethod
