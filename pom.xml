@@ -26,12 +26,12 @@
                     </plugins>
                 </pluginManagement>
             </build>
-            <properties>
-                <maven.compiler.target>11</maven.compiler.target>
-                <maven.compiler.source>11</maven.compiler.source>
-            </properties>
         </profile>
     </profiles>
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -60,7 +60,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.6.1</version>
-            <scope>compiler</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -87,8 +87,4 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
 </project>

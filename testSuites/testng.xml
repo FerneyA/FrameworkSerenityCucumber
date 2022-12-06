@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Sample Test Suite" parallel="tests" thread-count="2">
     <listeners>
-        <listener class-name="main.java.utils.Listeners"/>
+        <listener class-name="main.java.utils.Listener"/>
     </listeners>
     <test name="Simulate Credit PF1 Test">
         <parameter name="browser" value="remote-firefox"/>
