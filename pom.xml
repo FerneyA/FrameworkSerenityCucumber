@@ -96,5 +96,10 @@
             <version>4.6.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.1.0</version>
+        </dependency>
     </dependencies>
 </project>

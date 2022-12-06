@@ -5,7 +5,7 @@
         <listener class-name="main.java.utils.Listener"/>
     </listeners>
     <test name="Simulate Credit PF1 Test">
-        <parameter name="browser" value="remote-firefox"/>
+        <parameter name="browser" value="remote-chrome"/>
         <classes>
             <class name="test.java.SimulateCreditPF1Test"/>
         </classes>
