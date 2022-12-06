@@ -9,8 +9,10 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.Browser;
@@ -109,11 +111,15 @@ public class BaseTests {
     public WebDriver remoteHubTest(String browserName) {
         if (browserName.equalsIgnoreCase("remote-chrome")) {
             try {
-                DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-                desiredCapabilities.setBrowserName(Browser.CHROME.browserName());
+                //DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                //desiredCapabilities.setBrowserName(Browser.CHROME.browserName());
                 //desiredCapabilities.setPlatform(Platform.LINUX);
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options=new ChromeOptions();
+                options.setHeadless(true);
+                options.addArguments("window-size=1920,1200");
                 URL hubURL = new URL("http://standalone-chrome:4444/");
-                driver = new RemoteWebDriver(hubURL, desiredCapabilities);
+                driver = new RemoteWebDriver(hubURL, options);
                 driver.manage().window().maximize();
                 return driver;
             } catch (MalformedURLException e) {
