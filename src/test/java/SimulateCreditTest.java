@@ -1,7 +1,6 @@
 package test.java;
 
 import main.java.pom.*;
-import main.java.utils.BaseTests;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -22,7 +21,7 @@ public class SimulateCreditTest  extends BaseTests {
     SummaryPage summaryPage;
     ExcelDataProvider excelDataProvider;
 
-    @Test(dataProvider = "credit_simulation_data", testName = "Simular crédito usuario PF2.0")
+    @Test(testName = "Simular crédito usuario PF2.0")
     public void test(String args[]) throws InterruptedException, AWTException {
         this.driver = BaseTests.driver;
         loginSvpPage = new LoginSvpPage(driver);
@@ -30,8 +29,8 @@ public class SimulateCreditTest  extends BaseTests {
         personalInformationPage = new PersonalInformationPage(driver);
         documentsPage = new DocumentsPage(driver);
         summaryPage = new SummaryPage(driver);
-        loginSvpPage.loginUser(args[0], args[1]);
-        digitalSimulationPage.simulateCredit(args[2], args[3], args[4], args[5]);
+        loginSvpPage.loginUser("55589143", "QA2022");
+        /*digitalSimulationPage.simulateCredit(args[2], args[3], args[4], args[5]);
         digitalSimulationPage.validateTextInLabel(args[6]);
         digitalSimulationPage.requestCredit();
         personalInformationPage.updatePersonalInformation(args[7], args[8], args[9], args[10]);
@@ -42,7 +41,7 @@ public class SimulateCreditTest  extends BaseTests {
         assertEquals(summaryPage.getAccountNumber(), args[13]);
         assertEquals(summaryPage.getBank(), args[11]);
         assertEquals(summaryPage.getRut(), args[15]);
-        summaryPage.reviewDocuments();
+        summaryPage.reviewDocuments();*/
     }
 
     @DataProvider(name = "credit_simulation_data")
