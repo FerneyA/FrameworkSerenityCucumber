@@ -21,7 +21,7 @@ public class Listener implements ITestListener {
         String fileName = System.getProperty("user.dir") + File.separator +
                 "screenshots" + File.separator + "passed" + File.separator +
                 result.getMethod().getMethodName();
-        File f = ((TakesScreenshot) BaseTests.driver).getScreenshotAs(OutputType.FILE);
+        File f = ((TakesScreenshot) main.java.utils.BaseTests.driver).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(f, new File(fileName + ".png"));
         } catch (IOException e) {
