@@ -45,7 +45,7 @@ public class BaseTests {
         extent.setSystemInfo("Tester", "Ferney Arroyave Quintero");
         //setUpDriver("remote-chrome");
         remoteHubTest("remote-chrome");
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
     }
 
@@ -59,7 +59,7 @@ public class BaseTests {
         driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
     }*/
 
-    @AfterMethod
+    /*@AfterTest
     public void afterMethodMethod(ITestResult result) {
         if (result.getStatus() == ITestResult.SUCCESS) {
             String methodName = result.getMethod().getMethodName();
@@ -83,12 +83,13 @@ public class BaseTests {
             logger.log(Status.SKIP, m);
         }
         driver.quit();
-    }
+        extent.flush();
+    }*/
 
-    @AfterTest
+    /*@AfterTest
     public void afterTestMethod() {
         extent.flush();
-    }
+    }*/
 
     public void setUpDriver(String browser){
         if (browser.equalsIgnoreCase("remote-chrome")) {

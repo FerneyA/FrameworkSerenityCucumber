@@ -22,7 +22,7 @@ public class SimulateCreditTest  extends BaseTests {
     ExcelDataProvider excelDataProvider;
 
     @Test(testName = "Simular crédito usuario PF2.0")
-    public void test(String args[]) throws InterruptedException, AWTException {
+    public void test() throws InterruptedException, AWTException {
         this.driver = BaseTests.driver;
         loginSvpPage = new LoginSvpPage(driver);
         digitalSimulationPage = new DigitalSimulationPage(driver);
