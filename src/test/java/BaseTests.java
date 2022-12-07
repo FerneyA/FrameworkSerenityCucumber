@@ -43,8 +43,9 @@ public class BaseTests {
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
         extent.setSystemInfo("Tester", "Ferney Arroyave Quintero");
-        setUpDriver("remote-chrome");
-        driver.manage().window().maximize();
+        //setUpDriver("remote-chrome");
+        remoteHubTest("remote-chrome");
+        //driver.manage().window().maximize();
         driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
     }
 
