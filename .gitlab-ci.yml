@@ -3,13 +3,12 @@ stages:
 
 variables:
     URL_SITE:
-       value: ""
+       value: "https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico"
        description: "URL PARA PRUEBAS (https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico)"
 
 testAuto:
     stage: test
-    allow_failure: true
-    image: registry.gitlab.com/ccla/devsecops/templates-ci-cd/golden-image/vpn-ccla:stable-maven-3.8.5-openjdk-11-alpine-3.16
+    #image: registry.gitlab.com/ccla/devsecops/templates-ci-cd/golden-image/vpn-ccla:stable-maven-3.8.5-openjdk-11-alpine-3.16
     image: maven:3.8.5-jdk-11
     services:
     - name: selenium/standalone-chrome:latest
