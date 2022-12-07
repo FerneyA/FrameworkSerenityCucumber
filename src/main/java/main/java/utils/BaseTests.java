@@ -49,7 +49,7 @@ public class BaseTests {
     @Parameters(value = {"browser"})
     public void beforeMethodMethod(String browser, Method method) {
         logger = extent.createTest(method.getAnnotation(Test.class).testName());
-        //setUpDriver(browserName);
+        //setUpDriver(browser);
         remoteHubTest(browser);
         driver.manage().window().maximize();
         driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
