@@ -43,23 +43,19 @@ public class BaseTests {
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
         extent.setSystemInfo("Tester", "Ferney Arroyave Quintero");
-        //setUpDriver("remote-chrome");
-        remoteHubTest("remote-chrome");
+    }
+
+    @BeforeMethod
+    @Parameters(value = {"browser"})
+    public void beforeMethodMethod(String browser, Method method) {
+        logger = extent.createTest(method.getAnnotation(Test.class).testName());
+        //setUpDriver(browser);
+        remoteHubTest(browser);
         driver.manage().window().maximize();
         driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
     }
 
-    /*@BeforeMethod
-    @Parameters(value = {"browser"})
-    public void beforeMethodMethod(String browser, Method method) {
-        logger = extent.createTest(method.getAnnotation(Test.class).testName());
-        setUpDriver(browser);
-        //remoteHubTest(browser);
-        driver.manage().window().maximize();
-        driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
-    }*/
-
-    /*@AfterTest
+    @AfterMethod
     public void afterMethodMethod(ITestResult result) {
         if (result.getStatus() == ITestResult.SUCCESS) {
             String methodName = result.getMethod().getMethodName();
@@ -83,13 +79,12 @@ public class BaseTests {
             logger.log(Status.SKIP, m);
         }
         driver.quit();
-        extent.flush();
-    }*/
+    }
 
-    /*@AfterTest
+    @AfterTest
     public void afterTestMethod() {
         extent.flush();
-    }*/
+    }
 
     public void setUpDriver(String browser){
         if (browser.equalsIgnoreCase("remote-chrome")) {
