@@ -79,7 +79,7 @@ public class BaseTests {
             Markup m = MarkupHelper.createLabel(logText, ExtentColor.AMBER);
             logger.log(Status.SKIP, m);
         }
-        driver.quit();
+        //driver.quit();
     }
 
     @AfterTest
