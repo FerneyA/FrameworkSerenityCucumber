@@ -9,6 +9,7 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -107,7 +108,7 @@ public class BaseTests {
             try {
                 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                 desiredCapabilities.setBrowserName(Browser.CHROME.browserName());
-                //desiredCapabilities.setPlatform(Platform.LINUX);
+                desiredCapabilities.setPlatform(Platform.LINUX);
                 URL hubURL = new URL("http://standalone-chrome:4444/");
                 driver = new RemoteWebDriver(hubURL, desiredCapabilities);
                 driver.manage().window().maximize();
