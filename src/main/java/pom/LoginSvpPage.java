@@ -14,11 +14,12 @@ public class LoginSvpPage extends BasePage {
     }
 
     public void loginUser(String user, String password) throws InterruptedException {
-        fluentWait(txtRutUser);
+        /*fluentWait(txtRutUser);
         performScrollDown(btnEnter);
         Thread.sleep(2000);
         type(user, txtRutUser);
         type(password, txtPassword);
-        click(btnEnter);
+        click(btnEnter);*/
+        System.out.println("Hello Wordl!!");
     }
 }
