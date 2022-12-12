@@ -29,7 +29,8 @@ public class SimulateCreditTest  extends BaseTests {
         personalInformationPage = new PersonalInformationPage(driver);
         documentsPage = new DocumentsPage(driver);
         summaryPage = new SummaryPage(driver);
-        loginSvpPage.loginUser("55589143", "QA2022");
+        loginSvpPage.enterGoogle("55589143");
+        //loginSvpPage.loginUser("55589143", "QA2022");
         //loginSvpPage.loginUser(args[0], args[1]);
         /*digitalSimulationPage.simulateCredit(args[2], args[3], args[4], args[5]);
         digitalSimulationPage.validateTextInLabel(args[6]);

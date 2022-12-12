@@ -8,6 +8,7 @@ public class LoginSvpPage extends BasePage {
     By txtRutUser = By.name("username");
     By txtPassword = By.name("password");
     By btnEnter = By.id("botonLogin");
+    By txtGoogle = By.name("q");
 
     public LoginSvpPage(WebDriver driver) {
         super(driver);
@@ -20,5 +21,9 @@ public class LoginSvpPage extends BasePage {
         type(user, txtRutUser);
         type(password, txtPassword);
         click(btnEnter);
+    }
+
+    public void enterGoogle(String word) {
+        type(word, txtGoogle);
     }
 }
