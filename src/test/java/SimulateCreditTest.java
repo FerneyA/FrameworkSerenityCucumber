@@ -3,6 +3,7 @@ package test.java;
 import main.java.pom.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import main.java.utils.ExcelDataProvider;
 
@@ -21,7 +22,7 @@ public class SimulateCreditTest  extends BaseTests {
 
     //@Test(testName = "Simular crédito usuario PF2.0", dataProvider="credit_simulation_data")
     @Test(testName = "Simular crédito usuario PF2.0")
-    public void test() throws InterruptedException, AWTException {
+    public void testPf1() throws InterruptedException, AWTException {
         this.driver = BaseTests.driver;
         loginSvpPage = new LoginSvpPage(driver);
         digitalSimulationPage = new DigitalSimulationPage(driver);
@@ -29,6 +30,7 @@ public class SimulateCreditTest  extends BaseTests {
         documentsPage = new DocumentsPage(driver);
         summaryPage = new SummaryPage(driver);
         loginSvpPage.loginUser("55589143", "QA2022");
+        //loginSvpPage.loginUser(args[0], args[1]);
         /*digitalSimulationPage.simulateCredit(args[2], args[3], args[4], args[5]);
         digitalSimulationPage.validateTextInLabel(args[6]);
         digitalSimulationPage.requestCredit();

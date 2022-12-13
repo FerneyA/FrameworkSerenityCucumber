@@ -1,5 +1,6 @@
 target/
 reports/
+screenshots/
 build
 out
 .gradle
