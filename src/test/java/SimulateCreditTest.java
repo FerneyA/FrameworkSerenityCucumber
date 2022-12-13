@@ -19,15 +19,16 @@ public class SimulateCreditTest  extends BaseTests {
     SummaryPage summaryPage;
     ExcelDataProvider excelDataProvider;
 
-    @Test(testName = "Simular crédito usuario PF2.0", dataProvider="credit_simulation_data")
-    public void test(String args[]) throws InterruptedException, AWTException {
+    //@Test(testName = "Simular crédito usuario PF2.0", dataProvider="credit_simulation_data")
+    @Test(testName = "Simular crédito usuario PF2.0")
+    public void test() throws InterruptedException, AWTException {
         this.driver = BaseTests.driver;
         loginSvpPage = new LoginSvpPage(driver);
         digitalSimulationPage = new DigitalSimulationPage(driver);
         personalInformationPage = new PersonalInformationPage(driver);
         documentsPage = new DocumentsPage(driver);
         summaryPage = new SummaryPage(driver);
-        loginSvpPage.loginUser(args[0], args[1]);
+        loginSvpPage.loginUser("55589143", "QA2022");
         /*digitalSimulationPage.simulateCredit(args[2], args[3], args[4], args[5]);
         digitalSimulationPage.validateTextInLabel(args[6]);
         digitalSimulationPage.requestCredit();
@@ -42,9 +43,9 @@ public class SimulateCreditTest  extends BaseTests {
         summaryPage.reviewDocuments();*/
     }
 
-    @DataProvider(name = "credit_simulation_data")
+    /*@DataProvider(name = "credit_simulation_data")
     public Object[][] getDataCreditSimulation() throws IOException {
         excelDataProvider = new ExcelDataProvider();
         return excelDataProvider.getTestData("credit_simulation_data.xlsx", "PF2.0");
-    }
+    }*/
 }
