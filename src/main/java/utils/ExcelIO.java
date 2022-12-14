@@ -12,6 +12,7 @@ public class ExcelIO {
     public XSSFSheet sheet;
 
     public ExcelIO(String excelName, String sheetName) throws IOException {
+        System.out.println("Ruta excel: " + System.getProperty("user.dir") + "\\test-data\\" + excelName);
         workBook = new XSSFWorkbook(System.getProperty("user.dir") + "\\test-data\\" + excelName);
         sheet = workBook.getSheet(sheetName);
     }
