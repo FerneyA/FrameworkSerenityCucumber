@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Sample Test Suite" thread-count="1">
-    <listeners>
-        <listener class-name="main.java.utils.Listener"/>
-    </listeners>
-    <test name="Simulate Credit PF2 Test">
-        <parameter name="browser" value="remote-chrome"/>
+<suite  name="FirstTestScriptUsingWebDriverSuite">
+    <test name="FirstTestScriptUsingWebDriver" >
         <classes>
-            <class name="test.java.SimulateCreditTest"/>
+            <class name="test.java.SimulateCreditTest" >
+            </class>
         </classes>
     </test>
 </suite>
