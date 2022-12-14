@@ -1,19 +1,19 @@
 package test.java;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pom.LoginSvpPage;
 
 import java.net.URL;
 
 public class SimulateCreditTest {
 
     public RemoteWebDriver driver;
+    public LoginSvpPage loginSvpPage;
     public String gridURL = "http://standalone-chrome:4444/";
 
     @BeforeTest
@@ -23,21 +23,19 @@ public class SimulateCreditTest {
         capabilities.setPlatform(Platform.LINUX);
         try {
             driver = new RemoteWebDriver(new URL(gridURL), capabilities);
-        } catch (Exception e) {
-            System.out.println("Excepción final: " + e.getMessage());
+        } catch (Exception exception) {
+            System.out.println("Exception message " + exception.getMessage());
         }
     }
 
     @Test
     public void firstTestCase() {
         try {
-            System.out.println("Logging into Lambda Test Sign Up Page");
             driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
-            WebElement pageHeader= driver.findElement(By.name("username"));
-            pageHeader.sendKeys("54597274");
-            System.out.println("Clicked on the Sign In Button.");
-        } catch (Exception e) {
-
+            loginSvpPage = new LoginSvpPage(driver);
+            loginSvpPage.loginUser("55589143", "QA2022");
+        } catch (Exception exception) {
+            System.out.println("Exception message " + exception.getMessage());
         }
     }
 
