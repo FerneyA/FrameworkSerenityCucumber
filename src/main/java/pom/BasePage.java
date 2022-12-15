@@ -164,10 +164,9 @@ public class BasePage {
 
     public void takeScreenshot() throws IOException {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        File screenshotName = new File(System.getProperty("user.dir") + "/target/reports/Chrome/Evidencia/CP002_OK.png");
+        File screenshotName = new File(System.getProperty("user.dir") + "/target/surefire-reports/CP002_OK.png");
         FileUtils.copyFile(file, screenshotName);
         Reporter.log("<a target=\"_blank\" href='" + screenshotName + "'>Screenshot</a>");
         Reporter.log("<img src='" + screenshotName + "'/>");
-        System.out.println("Ruta: " + screenshotName);
     }
 }

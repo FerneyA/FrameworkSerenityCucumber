@@ -33,7 +33,7 @@ public class SimulateCreditTest {
     @BeforeTest
     public void setUp() {
         extent = new ExtentReports();
-        CP001 = new ExtentSparkReporter(System.getProperty("user.dir") + "/target/reports/CP001.html");
+        CP001 = new ExtentSparkReporter(System.getProperty("user.dir") + "/target/surefire-reports/CP001.html");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setPlatform(Platform.LINUX);
@@ -48,7 +48,7 @@ public class SimulateCreditTest {
     @Test(testName = "Simular crédito usuario PF2.0", dataProvider="credit_simulation_data")
     public void CP001(String args[]) {
         try {
-            String path = System.getProperty("user.dir") + "/target/reports/Chrome/Evidencia/CP001_OK.png";
+            String path = System.getProperty("user.dir") + "/target/surefire-reports/CP001_OK.png";
             System.out.println("Path...: " + path);
             extent.attachReporter(CP001);
             driver.get("https://pwpwebqaohs.cajalosandes.cl/mi-sucursal/SimuladorDeCreditoUnico");
