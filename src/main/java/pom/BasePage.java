@@ -1,4 +1,4 @@
-package pom;
+package main.java.pom;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -164,7 +164,7 @@ public class BasePage {
 
     public void takeScreenshot() throws IOException {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        File screenshotName = new File(System.getProperty("user.dir") + "/screenshots/" + driver.getTitle() + ".png");
+        File screenshotName = new File(System.getProperty("user.dir") + "/target/reports/Chrome/Evidencia/CP002_OK.png");
         FileUtils.copyFile(file, screenshotName);
         Reporter.log("<a target=\"_blank\" href='" + screenshotName + "'>Screenshot</a>");
         Reporter.log("<img src='" + screenshotName + "'/>");

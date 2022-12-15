@@ -1,4 +1,4 @@
-package pom;
+package main.java.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,6 @@ public class LoginSvpPage extends BasePage {
         fluentWait(txtRutUser);
         performScrollDown(btnEnter);
         Thread.sleep(2000);
-        takeScreenshot();
         type(user, txtRutUser);
         type(password, txtPassword);
         click(btnEnter);
