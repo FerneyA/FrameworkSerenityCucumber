@@ -1,15 +1,19 @@
 package pom;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
@@ -145,7 +149,7 @@ public class BasePage {
     public void uploadFile(By locator, String path) throws AWTException {
         driver.findElement(locator).sendKeys(path);
         Robot rb = new Robot();
-        StringSelection str = new StringSelection(System.getProperty("user.dir") + "\\test-data\\document_id\\" + path);
+        StringSelection str = new StringSelection(System.getProperty("user.dir") + "/test-data/document_id/" + path);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
         // press Contol+V for pasting
         rb.keyPress(KeyEvent.VK_CONTROL);
@@ -156,5 +160,14 @@ public class BasePage {
         // for pressing and releasing Enter
         rb.keyPress(KeyEvent.VK_ENTER);
         rb.keyRelease(KeyEvent.VK_ENTER);
+    }
+
+    public void takeScreenshot() throws IOException {
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File screenshotName = new File(System.getProperty("user.dir") + "/screenshots/" + driver.getTitle() + ".png");
+        FileUtils.copyFile(file, screenshotName);
+        Reporter.log("<a target=\"_blank\" href='" + screenshotName + "'>Screenshot</a>");
+        Reporter.log("<img src='" + screenshotName + "'/>");
+        System.out.println("Ruta: " + screenshotName);
     }
 }
