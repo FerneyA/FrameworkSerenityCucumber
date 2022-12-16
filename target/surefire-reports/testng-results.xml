@@ -1,50 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
-    <line>
-      <![CDATA[Login SVP Pilar Financiero]]>
-    </line>
-    <line>
-      <![CDATA[<a target = href='C:\Users\USUARIO\Documents\pilarfinanciero\spb-java-simpletestproject-testing2\screenshots\Caja Los Andes - Login.png'>Screenshot</a>]]>
-    </line>
-    <line>
-      <![CDATA[<img src='C:\Users\USUARIO\Documents\pilarfinanciero\spb-java-simpletestproject-testing2\screenshots\Caja Los Andes - Login.png'/>]]>
-    </line>
   </reporter-output>
-  <suite started-at="2022-12-15T02:37:20Z" name="test.java.SimulateCreditTest" finished-at="2022-12-15T02:37:47Z" duration-ms="27590">
+  <suite started-at="2022-12-16T10:23:57 COT" name="FirstTestScriptUsingWebDriverSuite" finished-at="2022-12-16T10:24:17 COT" duration-ms="19570">
     <groups>
     </groups>
-    <test started-at="2022-12-15T02:37:20Z" name="Command line test" finished-at="2022-12-15T02:37:47Z" duration-ms="27590">
+    <test started-at="2022-12-16T10:23:57 COT" name="FirstTestScriptUsingWebDriver" finished-at="2022-12-16T10:24:17 COT" duration-ms="19570">
       <class name="test.java.SimulateCreditTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:test.java.SimulateCreditTest@28eaa59a]" started-at="2022-12-15T02:37:20Z" name="setUp" finished-at="2022-12-15T02:37:22Z" duration-ms="2587" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:test.java.SimulateCreditTest@1b66c0fb]" started-at="2022-12-16T10:23:57 COT" name="setUp" finished-at="2022-12-16T10:24:00 COT" duration-ms="2515" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="firstTestCase([Ljava.lang.String;)[pri:0, instance:test.java.SimulateCreditTest@28eaa59a]" started-at="2022-12-15T02:37:23Z" name="firstTestCase" data-provider="credit_simulation_data" finished-at="2022-12-15T02:37:47Z" duration-ms="23573" status="PASS">
+        <test-method signature="firstTest([Ljava.lang.String;)[pri:0, instance:test.java.SimulateCreditTest@1b66c0fb]" started-at="2022-12-16T10:24:00 COT" name="firstTest" data-provider="credit_simulation_data" finished-at="2022-12-16T10:24:15 COT" duration-ms="15085" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[Ljava.lang.String;@7d04529c]]>
+                <![CDATA[[Ljava.lang.String;@22eaa86e]]>
               </value>
             </param>
           </params>
           <reporter-output>
-            <line>
-              <![CDATA[Login SVP Pilar Financiero]]>
-            </line>
-            <line>
-              <![CDATA[<a target = href='C:\Users\USUARIO\Documents\pilarfinanciero\spb-java-simpletestproject-testing2\screenshots\Caja Los Andes - Login.png'>Screenshot</a>]]>
-            </line>
-            <line>
-              <![CDATA[<img src='C:\Users\USUARIO\Documents\pilarfinanciero\spb-java-simpletestproject-testing2\screenshots\Caja Los Andes - Login.png'/>]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- firstTestCase -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:test.java.SimulateCreditTest@28eaa59a]" started-at="2022-12-15T02:37:47Z" name="closeBrowser" finished-at="2022-12-15T02:37:47Z" duration-ms="642" status="PASS">
+        </test-method> <!-- firstTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:test.java.SimulateCreditTest@1b66c0fb]" started-at="2022-12-16T10:24:15 COT" name="closeBrowser" finished-at="2022-12-16T10:24:17 COT" duration-ms="1184" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- test.java.SimulateCreditTest -->
-    </test> <!-- Command line test -->
-  </suite> <!-- test.java.SimulateCreditTest -->
+    </test> <!-- FirstTestScriptUsingWebDriver -->
+  </suite> <!-- FirstTestScriptUsingWebDriverSuite -->
 </testng-results>

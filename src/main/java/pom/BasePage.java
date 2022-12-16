@@ -1,19 +1,15 @@
 package main.java.pom;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Reporter;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
@@ -160,13 +156,5 @@ public class BasePage {
         // for pressing and releasing Enter
         rb.keyPress(KeyEvent.VK_ENTER);
         rb.keyRelease(KeyEvent.VK_ENTER);
-    }
-
-    public void takeScreenshot() throws IOException {
-        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        File screenshotName = new File(System.getProperty("user.dir") + "/target/surefire-reports/CP002_OK.png");
-        FileUtils.copyFile(file, screenshotName);
-        Reporter.log("<a target=\"_blank\" href='" + screenshotName + "'>Screenshot</a>");
-        Reporter.log("<img src='" + screenshotName + "'/>");
     }
 }
