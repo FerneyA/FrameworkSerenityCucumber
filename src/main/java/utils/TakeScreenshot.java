@@ -15,7 +15,6 @@ public class TakeScreenshot {
         String path = "target/surefire-reports/reports/chrome/evidencia/CP001.png";
         File destination = new File(path);
         FileUtils.copyFile(src, destination);
-        System.out.println("Ruta absoluta: " + destination.getAbsolutePath());
-        return destination.getAbsolutePath();
+        return "/evidencia/CP001.png";
     }
 }
