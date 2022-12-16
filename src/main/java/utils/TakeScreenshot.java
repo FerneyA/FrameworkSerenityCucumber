@@ -15,6 +15,6 @@ public class TakeScreenshot {
         String path = "target/surefire-reports/reports/chrome/evidencia/CP001.png";
         File destination = new File(path);
         FileUtils.copyFile(src, destination);
-        return "../evidencia/CP001.png";
+        return "./evidencia/CP001.png";
     }
 }
