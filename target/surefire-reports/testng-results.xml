@@ -2,27 +2,27 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-16T10:23:57 COT" name="FirstTestScriptUsingWebDriverSuite" finished-at="2022-12-16T10:24:17 COT" duration-ms="19570">
+  <suite started-at="2022-12-16T10:45:28 COT" name="FirstTestScriptUsingWebDriverSuite" finished-at="2022-12-16T10:45:50 COT" duration-ms="21454">
     <groups>
     </groups>
-    <test started-at="2022-12-16T10:23:57 COT" name="FirstTestScriptUsingWebDriver" finished-at="2022-12-16T10:24:17 COT" duration-ms="19570">
+    <test started-at="2022-12-16T10:45:28 COT" name="FirstTestScriptUsingWebDriver" finished-at="2022-12-16T10:45:50 COT" duration-ms="21454">
       <class name="test.java.SimulateCreditTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:test.java.SimulateCreditTest@1b66c0fb]" started-at="2022-12-16T10:23:57 COT" name="setUp" finished-at="2022-12-16T10:24:00 COT" duration-ms="2515" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:test.java.SimulateCreditTest@1b66c0fb]" started-at="2022-12-16T10:45:28 COT" name="setUp" finished-at="2022-12-16T10:45:31 COT" duration-ms="2534" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="firstTest([Ljava.lang.String;)[pri:0, instance:test.java.SimulateCreditTest@1b66c0fb]" started-at="2022-12-16T10:24:00 COT" name="firstTest" data-provider="credit_simulation_data" finished-at="2022-12-16T10:24:15 COT" duration-ms="15085" status="PASS">
+        <test-method signature="firstTest([Ljava.lang.String;)[pri:0, instance:test.java.SimulateCreditTest@1b66c0fb]" started-at="2022-12-16T10:45:32 COT" name="firstTest" data-provider="credit_simulation_data" finished-at="2022-12-16T10:45:49 COT" duration-ms="17027" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[Ljava.lang.String;@22eaa86e]]>
+                <![CDATA[[Ljava.lang.String;@1457fde]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- firstTest -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:test.java.SimulateCreditTest@1b66c0fb]" started-at="2022-12-16T10:24:15 COT" name="closeBrowser" finished-at="2022-12-16T10:24:17 COT" duration-ms="1184" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:test.java.SimulateCreditTest@1b66c0fb]" started-at="2022-12-16T10:45:49 COT" name="closeBrowser" finished-at="2022-12-16T10:45:50 COT" duration-ms="1092" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

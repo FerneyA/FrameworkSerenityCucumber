@@ -19,7 +19,7 @@ import java.net.URL;
 public class SimulateCreditTest {
 
     public ExtentReports extent = new ExtentReports();
-    static ExtentSparkReporter spark = new ExtentSparkReporter("target/surefire-reports/reports/chrome/index.html");
+    static ExtentSparkReporter spark = new ExtentSparkReporter(System.getProperty("user.dir") + "target/surefire-reports/reports/chrome/index.html");
     public static RemoteWebDriver driver;
     public ExcelDataProvider excelDataProvider;
     public LoginSvpPage loginSvpPage;
@@ -50,9 +50,10 @@ public class SimulateCreditTest {
             extent.createTest("Cargar navegador OK")
             .log(Status.PASS, "Se levantó correctamente el navegador");
             loginSvpPage.loginUser(args[0], args[1]);
+            String path = TakeScreenshot.getScreenShot(driver);
             extent.createTest("Login SVP")
                         .createNode("CP001 - Login SVP")
-                        .pass(MediaEntityBuilder.createScreenCaptureFromPath(TakeScreenshot.getScreenShot(driver)).build());
+                        .pass(MediaEntityBuilder.createScreenCaptureFromPath(path).build());
         } catch (Exception exception) {
             System.out.println("Exception message first Test::" + exception.getMessage());
         }
