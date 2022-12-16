@@ -52,7 +52,7 @@ public class SimulateCreditTest {
             loginSvpPage.loginUser(args[0], args[1]);
             extent.createTest("Login SVP")
                         .createNode("CP001 - Login SVP")
-                    .assignDevice("Linux").pass(MediaEntityBuilder.createScreenCaptureFromPath(TakeScreenshot.getScreenShot(driver)).build());
+                    .pass(MediaEntityBuilder.createScreenCaptureFromPath(TakeScreenshot.getScreenShot(driver)).build());
         } catch (Exception exception) {
             System.out.println("Exception message first Test::" + exception.getMessage());
         }
