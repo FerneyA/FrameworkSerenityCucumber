@@ -1,8 +1,12 @@
-package main.java.pom;
+package starter.pages;
 
+import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -10,14 +14,13 @@ import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.List;
 
-public class BasePage {
+public class BasePage extends PageObject {
 
     private WebDriver driver;
-
     By spinCCLA = By.className(".ant-spin");
 
-    BasePage(WebDriver driver) {
-        this.driver = driver;
+    public BasePage() {
+        this.driver = super.getDriver();
     }
 
     public void visit(String url) {
@@ -60,7 +63,7 @@ public class BasePage {
     }
 
     public WebElement fluentWait(final By locator) {
-        // Waiting 30 seconds for an element to be present on the page, checking
+        // Waiting 50 seconds for an element to be present on the page, checking
         // for its presence once every 5 seconds.
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(50))
@@ -107,7 +110,7 @@ public class BasePage {
     }
 
     public void performScrollDownBottomPage() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) super.getDriver();
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
