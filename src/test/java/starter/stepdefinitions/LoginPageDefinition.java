@@ -5,11 +5,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import starter.pages.StepLoginSvpPage;
+import starter.pages.StepPersonalInformationPage;
 
 public class LoginPageDefinition {
 
     @Steps
     StepLoginSvpPage loginPage;
+
+    @Steps
+    StepPersonalInformationPage stepPersonalInformationPage;
 
     @Given("User is on Home page SVP")
     public void openApplication() {
@@ -20,10 +24,11 @@ public class LoginPageDefinition {
     public void enterUsernameAndPassword(String username, String password) {
         loginPage.inputUserName(username);
         loginPage.inputPassword(password);
+        loginPage.clickButtonLogin();
     }
 
     @Then("User should be able to login successfully")
-    public void clickOnLoginButton() {
-        loginPage.clickButtonLogin();
+    public void clickOnLoginButton() throws InterruptedException {
+        stepPersonalInformationPage.searchInputIsVisibleNow();
     }
 }
