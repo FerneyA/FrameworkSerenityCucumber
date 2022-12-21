@@ -1,32 +1,21 @@
 package starter.pages;
 
-import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
+import org.openqa.selenium.By;
 
 public class StepLoginSvpPage extends BasePage {
 
-    @FindBy(name = "username")
-    WebElementFacade inputRutUser;
+    By inputRutUser = By.name("username");
+    By inputPassword = By.name("password");
+    By btnEnter = By.id("botonLogin");
 
-    @FindBy(name = "password")
-    WebElementFacade inputPassword;
-
-    @FindBy(id = "botonLogin")
-    WebElementFacade btnEnter;
-
-    @Step("Enter username")
-    public void inputUserName(String username) {
-        inputRutUser.waitUntilClickable().sendKeys(username);
-    }
-
-    @Step("Enter password")
-    public void inputPassword(String password) {
-        inputPassword.sendKeys(password);
-    }
-
-    @Step("Click Submit Button")
-    public void clickButtonLogin() {
-        btnEnter.click();
+    @Step
+    public void loginUserSvp(String user, String password) throws InterruptedException {
+        fluentWait(By.name("username"));
+        performScrollDown(btnEnter);
+        Thread.sleep(2000);
+        type(user, inputRutUser);
+        type(password, inputPassword);
+        click(btnEnter);
     }
 }
