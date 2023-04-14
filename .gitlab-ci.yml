@@ -1,4 +1,0 @@
-include:
-  - project: 'ccla/devsecops/templates-ci-cd'
-    ref: master
-    file: /Pipelines/CI/seleniumgrid.yml

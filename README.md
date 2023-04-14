@@ -14,7 +14,9 @@ Abrir un cmd en la ruta del archivo descargado y copiar el comando: ``` java -ja
 
 Para verificar que el servidor está arriba, probar la dirección: http://localhost:4444/ y se debe abrir la página del selenium-server.
 
-Seguidamente se debe descargar el proyecto del repositorio y ejecutar en la terminal del IDE (recomendado IntelliJ IDEA) el comando: ```mvn clean verify```.
+Seguidamente se debe descargar el proyecto del repositorio y ejecutar en la terminal del IDE (recomendado IntelliJ IDEA) el comando:
+
+```mvn clean verify -Denvironment=chrome o mvn clean verify -Denvironment=firefox``` de acuerdo al navegador deseado para ejecutar la prueba (el navegador debe estar instalado).
 
 Apenas termine la ejecución se puede observar el reporte en la carpeta generada: ```target/site/serenity/index.html``` (abrir con navegador de preferencia).
 
