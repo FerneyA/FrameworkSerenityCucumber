@@ -4,29 +4,28 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import starter.pages.StepDigitalSimulationPage;
-import starter.pages.StepLoginSvpPage;
+import starter.pages.StepLoginFacebookPage;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class LoginPageDefinition {
 
     @Steps
-    StepLoginSvpPage loginPage;
+    StepLoginFacebookPage loginPage;
 
-    @Steps
-    StepDigitalSimulationPage stepDigitalSimulationPage;
-
-    @Given("User is on Home page SVP")
+    @Given("User enters Facebook page")
     public void openApplication() {
         loginPage.open();
     }
 
-    @When("User enters username as {string} and password as {string}")
-    public void enterUsernameAndPassword(String username, String password) throws InterruptedException {
-        loginPage.loginUserSvp(username, password);
+    @When("User types the username: {string} and password: {string}")
+    public void typeUserAndPassword(String username, String password) {
+        loginPage.LoginFacebook(username, password);
     }
 
-    @Then("User should be able to login successfully")
-    public void clickOnLoginButton() throws InterruptedException {
-        stepDigitalSimulationPage.searchInputIsVisibleNow();
+    @Then("User should see the message: {string}")
+    public void validateMessage(String message) {
+        String foundMessage = loginPage.getElementText();
+        assertThat("Found text: " + foundMessage + " Expected message: " + message, foundMessage.contains(message));
     }
 }
