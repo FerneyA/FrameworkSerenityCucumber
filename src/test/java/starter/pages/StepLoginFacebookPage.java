@@ -11,7 +11,7 @@ public class StepLoginFacebookPage extends BasePage {
     By labelMessage = By.cssSelector("div[class='_9ay7']");
 
     @Step
-    public void LoginFacebook(String username, String password) {
+    public void loginFacebook(String username, String password) {
         fluentWait(inputEmail);
         type(username, inputEmail);
         type(password, inputPassword);

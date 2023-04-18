@@ -20,7 +20,7 @@ public class LoginPageDefinition {
 
     @When("User types the username: {string} and password: {string}")
     public void typeUserAndPassword(String username, String password) {
-        loginPage.LoginFacebook(username, password);
+        loginPage.loginFacebook(username, password);
     }
 
     @Then("User should see the message: {string}")
